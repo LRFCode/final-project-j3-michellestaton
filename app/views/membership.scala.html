@@ -1,0 +1,21 @@
+@(familyDetail : FamilyDetail)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>New Life Baptist Church</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>New Life Baptist Church</h1>
+<h2>@familyDetail.getName()</h2>
+<img src="/assets/images/family1.jpg"><br>
+<label><strong>Names: </strong> @familyDetail.getName()</label><br>
+<label><strong>Address:  </strong> @familyDetail.getAddress()</label><br>
+<label><strong>Phone Number:  </strong>@familyDetail.getPhoneNumber()</label><br>
+<label><strong>Email:  </strong> @familyDetail.getEmail()</label><br>
+</body>
+</html>
