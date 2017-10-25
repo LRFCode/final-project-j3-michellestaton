@@ -2,12 +2,16 @@ package controllers;
 
 
 import models.FamilyDetail;
+import models.MemberDetail;
 import play.db.jpa.JPAApi;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
 
 import javax.inject.Inject;
+import java.util.List;
+
+
 
 
 public class MembershipController extends Controller
@@ -28,7 +32,14 @@ public class MembershipController extends Controller
                             "WHERE f.familyid = :familyId", FamilyDetail.class).
         setParameter("familyId", familyId).
         getSingleResult();
-        return ok(views.html.membership.render(familyDetail));
+
+        List<MemberDetail> familyMember = jpaApi.em().
+                                        createNativeQuery("SELECT f.familyId, m.membershipid, m.memberName, m.birthday " +
+                                                "FROM Membership m JOIN family f ON m.familyId = f.familyId " +
+                                                "WHERE f.familyid = :familyId", MemberDetail.class).
+                setParameter("familyId", familyId).
+                getResultList();
+        return ok(views.html.membership.render(familyDetail, familyMember));
 
     }
 

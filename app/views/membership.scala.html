@@ -1,4 +1,4 @@
-@(familyDetail : FamilyDetail)
+@(familyDetail : FamilyDetail, familyMember : List[MemberDetail])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +13,11 @@
 <h1>New Life Baptist Church</h1>
 <h2>@familyDetail.getName()</h2>
 <img src="/assets/images/family1.jpg"><br>
-<label><strong>Names: </strong> @familyDetail.getName()</label><br>
+<label> @familyDetail.getName() Family</label><br>
+
+@for(family <- familyMember) {
+<label>@family.getMemberName()</label><br>
+}
 <label><strong>Address:  </strong> @familyDetail.getAddress()</label><br>
 <label><strong>Phone Number:  </strong>@familyDetail.getPhoneNumber()</label><br>
 <label><strong>Email:  </strong> @familyDetail.getEmail()</label><br>
