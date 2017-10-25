@@ -8,3 +8,8 @@ GET     /                           controllers.HomeController.index
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET     /family/:id                 controllers.MembershipController.getFamily(id:Integer)
+
+GET     /news                       controllers.MembershipController.getNews
+GET     /calendar                   controllers.MembershipController.getCalendar
