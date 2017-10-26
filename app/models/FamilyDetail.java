@@ -13,6 +13,16 @@ public class FamilyDetail
     private String phoneNumber;
     private String email;
 
+    public int getFamilyId()
+    {
+        return familyId;
+    }
+
+    public void setFamilyId(int familyId)
+    {
+        this.familyId = familyId;
+    }
+
     public String getName()
     {
         return name;

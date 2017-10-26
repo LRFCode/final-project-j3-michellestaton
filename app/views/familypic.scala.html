@@ -10,17 +10,19 @@
     <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>New Life Baptist Church</h1>
-<h2>@familyDetail.getName()</h2>
+<h1>@familyDetail.getName()</h1>
 <img src="/familypicture/@familyDetail.getFamilyId" width="50"><br>
-<label> @familyDetail.getName() Family</label><br>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" id="filename" name="filename">
 
-@for(family <- familyMember) {
-<label>@family.getMemberName()</label>
-<label>@family.getBirthDay()</label><br>
-}
-<label><strong>Address:  </strong> @familyDetail.getAddress()</label><br>
-<label><strong>Phone Number:  </strong>@familyDetail.getPhoneNumber()</label><br>
-<label><strong>Email:  </strong> @familyDetail.getEmail()</label><br>
+    @for(family <- familyMember) {
+    <label>@family.getMemberName()</label>
+    <label>@family.getBirthDay()</label><br>
+    }
+    <label>Address:  @familyDetail.getAddress()</label><br>
+    <label><strong>Phone Number:  </strong>@familyDetail.getPhoneNumber()</label><br>
+    <label><strong>Email:  </strong> @familyDetail.getEmail()</label><br>
+    <button type="submit">SAVE</button>
+</form>
 </body>
 </html>
