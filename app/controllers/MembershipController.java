@@ -5,6 +5,7 @@ import com.google.common.io.Files;
 import models.Family;
 import models.FamilyDetail;
 import models.MemberDetail;
+import models.News;
 import play.data.DynamicForm;
 import play.data.Form;
 import play.data.FormFactory;
@@ -51,10 +52,13 @@ public class MembershipController extends Controller
         return ok(views.html.membership.render(familyDetail, familyMember));
 
     }
-
+    @Transactional(readOnly = true)
     public Result getNews()
     {
-        return ok(views.html.news.render());
+        List<News> news = jpaApi.em().
+                createQuery("SELECT n FROM News n", News.class).
+                getResultList();
+        return ok(views.html.news.render(news));
     }
 
     public Result getCalendar()

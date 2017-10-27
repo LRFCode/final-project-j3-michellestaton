@@ -12,7 +12,7 @@
 <body>
 <h1>New Life Baptist Church</h1>
 <h2>@familyDetail.getName()</h2>
-<img src="/familypicture/@familyDetail.getFamilyId" width="50"><br>
+<img src="/familypicture/@familyDetail.getFamilyId" width="100"><br>
 <label> @familyDetail.getName() Family</label><br>
 
 @for(family <- familyMember) {
@@ -22,5 +22,6 @@
 <label><strong>Address:  </strong> @familyDetail.getAddress()</label><br>
 <label><strong>Phone Number:  </strong>@familyDetail.getPhoneNumber()</label><br>
 <label><strong>Email:  </strong> @familyDetail.getEmail()</label><br>
+
 </body>
 </html>
