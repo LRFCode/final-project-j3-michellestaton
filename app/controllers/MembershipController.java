@@ -5,6 +5,9 @@ import com.google.common.io.Files;
 import models.Family;
 import models.FamilyDetail;
 import models.MemberDetail;
+import play.data.DynamicForm;
+import play.data.Form;
+import play.data.FormFactory;
 import play.db.jpa.JPAApi;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
@@ -20,10 +23,12 @@ import java.util.List;
 
 public class MembershipController extends Controller
 {
+    private FormFactory formFactory;
     private JPAApi jpaApi;
     @Inject
-    public MembershipController(JPAApi jpaApi)
+    public MembershipController(FormFactory formFactory, JPAApi jpaApi)
     {
+        this.formFactory = formFactory;
         this.jpaApi = jpaApi;
     }
     @Transactional(readOnly = true)
@@ -108,6 +113,7 @@ public class MembershipController extends Controller
         }
         public Result getPics()
         {
+
             return ok(views.html.families.render());
         }
 
