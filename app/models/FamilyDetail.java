@@ -10,10 +10,27 @@ public class FamilyDetail
     private int familyId;
     private String name;
     private String address;
+
     private String phoneNumber;
     private String email;
 
+
+    public String getAddress()
+    {
+        return address;
+    }
+
+    public void setAddress(String address)
+    {
+        this.address = address;
+    }
+
+
+
+
+
     public int getFamilyId()
+
     {
         return familyId;
     }
@@ -33,15 +50,6 @@ public class FamilyDetail
         this.name = name;
     }
 
-    public String getAddress()
-    {
-        return address;
-    }
-
-    public void setAddress(String address)
-    {
-        this.address = address;
-    }
 
     public String getPhoneNumber()
     {

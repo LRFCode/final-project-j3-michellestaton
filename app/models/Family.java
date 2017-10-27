@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
+
 
 @Entity
 @Table(name="Family")
@@ -13,7 +13,7 @@ public class Family
     @Id @Column(name="FamilyId") private int familyId;
     @Column(name="FamilyName") private String familyName;
     @Column(name="Address")   private String address;
-    @Column(name="Picture")   private byte[] picture;
+    @Column(name="FamilyPicture")   private byte[] picture;
 
     public int getFamilyId()
     {

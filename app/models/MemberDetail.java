@@ -10,8 +10,11 @@ public class MemberDetail
     @Id
     private int membershipId;
     private int familyId;
-    private String memberName;
-    private Date birthDay;
+    private String membername;
+    private Date birthday;
+
+
+
 
     public int getMembershipId()
     {
@@ -33,23 +36,23 @@ public class MemberDetail
         this.familyId = familyId;
     }
 
-    public String getMemberName()
+    public String getName()
     {
-        return memberName;
+        return membername;
     }
 
-    public void setmemberName(String memberName)
+    public void setName(String Name)
     {
-        this.memberName = memberName;
+        this.membername = Name;
     }
 
-    public Date getBirthDay()
+    public Date getBirthday()
     {
-        return birthDay;
+        return birthday;
     }
 
-    public void setBirthDay(Date birthDay)
+    public void setBirthday(Date birthday)
     {
-        this.birthDay = birthDay;
+        this.birthday = birthday;
     }
 }

@@ -31,15 +31,15 @@ public class MembershipController extends Controller
     public Result getFamily(Integer familyId)
     {
         FamilyDetail familyDetail = (FamilyDetail)jpaApi.em().
-                            createNativeQuery("SELECT f.FamilyId, f.FamilyName AS Name, address, phoneNumber, email " +
+                            createNativeQuery("SELECT f.FamilyId, f.FamilyName AS Name, f.address, m.phoneNumber, m.email " +
                             "FROM family f JOIN membership m ON f.familyid = m.familyid " +
                             "WHERE f.familyid = :familyId", FamilyDetail.class).
         setParameter("familyId", familyId).
         getSingleResult();
 
         List<MemberDetail> familyMember = jpaApi.em().
-                                        createNativeQuery("SELECT f.familyId, m.membershipid, m.memberName, m.birthday " +
-                                                "FROM Membership m JOIN family f ON m.familyId = f.familyId " +
+                                        createNativeQuery("SELECT f.familyId, m.membershipid, m.membername, m.birthday " +
+                                                "FROM membership m JOIN family f ON m.familyId = f.familyId " +
                                                 "WHERE f.familyid = :familyId", MemberDetail.class).
                 setParameter("familyId", familyId).
                 getResultList();
