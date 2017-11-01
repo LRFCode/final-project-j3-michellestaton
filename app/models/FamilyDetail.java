@@ -25,10 +25,6 @@ public class FamilyDetail
         this.address = address;
     }
 
-
-
-
-
     public int getFamilyId()
 
     {
@@ -49,7 +45,6 @@ public class FamilyDetail
     {
         this.name = name;
     }
-
 
     public String getPhoneNumber()
     {

@@ -1,3 +1,4 @@
+@(calendar: List[CalendarInfo])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +10,26 @@
     <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-
 <img src="/assets/images/events.jpg"><br>
-<p><strong>Wedding: </strong> Henson/Williams wedding date</p>
-<p><strong>Music:  </strong> Christmas cantata date</p>
-<p><strong>Fellowship:  </strong>Church Family Thanksgiving Meal date</p>
-<p><strong>Shower:  </strong> Baby Shower for baby boy-Venable date</p>
-<p><strong>Festival:  </strong> Fall Fest/Trunk Treats date</p>
-<p><strong>Bible Study:  </strong> Mens Bible Study every Thursday</p>
+<table>
+    <thead>
+    <tr>
+        <th></th>
+        <th> Event type</th>
+        <td rowspan="3">Description </td>
+        <th> Date</th>
+    </tr>
+    </thead>
+</table>
+
+@for(calendarItem <- calendar){
+
+<label>@calendarItem.getEventtypeid()</label>
+<label> @calendarItem.getDescription()</label>
+
+<label>Date: @calendarItem.getCalendardate()</label><br>
+
+}
+
 </body>
 </html>

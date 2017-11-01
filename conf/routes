@@ -10,10 +10,12 @@ GET     /                           controllers.HomeController.index
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 GET     /family/:id                 controllers.MembershipController.getFamily(id:Integer)
-
+GET     /church                     controllers.MembershipController.getChurchFamily()
 GET     /news                       controllers.MembershipController.getNews
 GET     /calendar                   controllers.MembershipController.getCalendar
 
 GET     /familypicture/:id          controllers.MembershipController.getFamilyPicture(id:Integer)
 GET     /familypic/:id              controllers.MembershipController.getFamilypic(id:Integer)
 POST    /familypic/:id              controllers.MembershipController.postFamilyPic(id:Integer)
+
+

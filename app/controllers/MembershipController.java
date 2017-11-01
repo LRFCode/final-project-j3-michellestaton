@@ -2,10 +2,7 @@ package controllers;
 
 
 import com.google.common.io.Files;
-import models.Family;
-import models.FamilyDetail;
-import models.MemberDetail;
-import models.News;
+import models.*;
 import play.data.DynamicForm;
 import play.data.Form;
 import play.data.FormFactory;
@@ -17,6 +14,7 @@ import play.mvc.Result;
 
 import javax.inject.Inject;
 import java.io.File;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -49,6 +47,8 @@ public class MembershipController extends Controller
                                                 "WHERE f.familyid = :familyId", MemberDetail.class).
                 setParameter("familyId", familyId).
                 getResultList();
+
+
         return ok(views.html.membership.render(familyDetail, familyMember));
 
     }
@@ -60,10 +60,14 @@ public class MembershipController extends Controller
                 getResultList();
         return ok(views.html.news.render(news));
     }
-
+    @Transactional(readOnly = true)
     public Result getCalendar()
     {
-        return ok(views.html.calendar.render());
+        List<CalendarInfo> calendar = jpaApi.em().
+                    createQuery("SELECT c FROM CalendarInfo c", CalendarInfo.class).
+                    getResultList();
+
+        return ok(views.html.calendar.render(calendar));
     }
 
     @Transactional(readOnly = true)
@@ -115,11 +119,11 @@ public class MembershipController extends Controller
 
             return ok("Saved the pic");
         }
-        public Result getPics()
+        /*public Result getPics()
         {
 
             return ok(views.html.families.render());
-        }
+        }*/
 
         @Transactional(readOnly = true)
         public Result getFamilyPicture(int familyId)
@@ -139,6 +143,15 @@ public class MembershipController extends Controller
             }
 
         }
+        @Transactional(readOnly = true)
+    public Result getChurchFamily()
+        {
+            List<Family> families = jpaApi.em().createQuery("SELECT f FROM Family f ORDER BY FamilyName, FamilyId").getResultList();
+            return ok(views.html.families.render(families));
+        }
+
+
+
     }
 
 

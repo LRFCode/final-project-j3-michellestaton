@@ -1,7 +1,8 @@
+@(families : List[Family])
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>About our members</title>
+    <title>Our NLBC Families</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
@@ -9,24 +10,29 @@
     <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Families</h1>
-<form method="GET">
-    <input type="text" name="searchcriteria" id="searchcriteria"/>
-    <button type="submit">Search</button>
+<div class="text-center">
+    <h1>Our NLBC Families</h1>
+    <div class="container">
+                @for(family <- families) {
+                <div class="row">
+                <div class="col-xs-6">
+                <img src="familypicture/@family.getFamilyId" width="200"><br>
+                </div>
+                <div class="col-xs-6">
+                    @for(membership <- family.getMemberships()){
+                      @membership.getMemberName()<br>
+                    }
+                </div>
+                </div>
+            }
 
-</form>
-<table>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Phone Number</th>
-    <th>Email</th>
-    <th>Picture</th>
-
-    <tr>
-        <td> <a href="/family/1">Staton</a><img src="/assets/images/family1.jpg" width="100"></td>
+    </div>
+</div>
 
 
-</table>
+
+
+
 </body>
 
 </html>

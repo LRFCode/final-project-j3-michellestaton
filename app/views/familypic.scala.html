@@ -1,6 +1,6 @@
 @(familyDetail : FamilyDetail, familyMember : List[MemberDetail])
 <!DOCTYPE html>
-<html lang="en">
+<body lang="en">
 <head>
     <title>New Life Baptist Church</title>
     <meta charset="utf-8">
@@ -10,19 +10,29 @@
     <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>@familyDetail.getName()</h1>
-<img src="/familypicture/@familyDetail.getFamilyId" width="50"><br>
-<form method="POST" enctype="multipart/form-data">
-    <input type="file" id="filename" name="filename">
+<div class="text-center">
+<h1>New Life Baptist Church</h1>
 
+<div class="container">
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-4">
+    <img src="/familypicture/@familyDetail.getFamilyId" width="200"><br>
+    <h2> @familyDetail.getName() Family</h2>
+    </div>
+    <div class="col-xs-4">
     @for(family <- familyMember) {
     <label>@family.getName()</label>
     <label>@family.getBirthday()</label><br>
     }
-    <label>@familyDetail.getAddress()</label><br>
+    <label><strong>Address:  </strong> @familyDetail.getAddress()</label><br>
     <label><strong>Phone Number:  </strong>@familyDetail.getPhoneNumber()</label><br>
     <label><strong>Email:  </strong> @familyDetail.getEmail()</label><br>
-    <button type="submit">SAVE</button>
-</form>
+    </div>
+    <div class="col-xs-2"></div>
+</div>
+</div>
+</div><hr />
+</table>
 </body>
 </html>

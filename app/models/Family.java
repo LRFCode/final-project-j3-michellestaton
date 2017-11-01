@@ -1,9 +1,7 @@
 package models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Collection;
 
 
 @Entity
@@ -14,6 +12,17 @@ public class Family
     @Column(name="FamilyName") private String familyName;
     @Column(name="Address")   private String address;
     @Column(name="FamilyPicture")   private byte[] picture;
+    @OneToMany @JoinColumn(name = "FamilyId")    private Collection<Membership> memberships;
+
+    public Collection<Membership> getMemberships()
+    {
+        return memberships;
+    }
+
+    public void setMemberships(Collection<Membership> memberships)
+    {
+        this.memberships = memberships;
+    }
 
     public int getFamilyId()
     {
