@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 
 @Entity
@@ -12,14 +13,14 @@ public class Family
     @Column(name="FamilyName") private String familyName;
     @Column(name="Address")   private String address;
     @Column(name="FamilyPicture")   private byte[] picture;
-    @OneToMany @JoinColumn(name = "FamilyId")    private Collection<Membership> memberships;
+    @OneToMany @JoinColumn(name = "FamilyId")    private List<Membership> memberships;
 
-    public Collection<Membership> getMemberships()
+    public List<Membership> getMemberships()
     {
         return memberships;
     }
 
-    public void setMemberships(Collection<Membership> memberships)
+    public void setMemberships(List<Membership> memberships)
     {
         this.memberships = memberships;
     }

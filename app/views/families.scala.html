@@ -28,11 +28,16 @@
                    <br>
                     <hr/>
                 </div>
-                    <div class="col-xs-4"></div>
-                    <label>Address:  @family.getAddress()</label><br>
-                    <label>Phone Number: @family.getMemberships.item(0).getPhonenumber</label>
 
-                <div class="col-xs-2"></div>
+                    <label>Address:  @family.getAddress()</label><br>
+                    <label>Phone Number:
+                        @if(family.getMemberships.size() > 0) {
+                          @family.getMemberships.get(0).getPhonenumber <br>
+                            @family.getMemberships.get(0).getEmail
+                        }
+                    </label>
+
+                <div class="col-xs-6"></div>
                 </div>
                 </div>
             }

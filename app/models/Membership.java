@@ -54,7 +54,7 @@ import java.util.Date;
 
         public String getFormattedBirthday()
         {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             if (birthday == null)
             {
                 return null;

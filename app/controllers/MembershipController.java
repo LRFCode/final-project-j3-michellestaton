@@ -148,7 +148,6 @@ public class MembershipController extends Controller
         {
             List<Family> families = jpaApi.em().
                     createQuery("SELECT f FROM Family f ORDER BY FamilyName, FamilyId ").getResultList();
-
                      return ok(views.html.families.render(families));
         }
 
