@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -24,6 +25,7 @@ import java.util.Date;
         private String email;
         @Column(name = "FamilyId")
         private int familyid;
+
 
         public int getMembershipId()
         {
@@ -48,6 +50,19 @@ import java.util.Date;
         public Date getBirthday()
         {
             return birthday;
+        }
+
+        public String getFormattedBirthday()
+        {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+            if (birthday == null)
+            {
+                return null;
+            }
+            else
+            {
+                return sdf.format(birthday);
+            }
         }
 
         public void setBirthday(Date birthday)

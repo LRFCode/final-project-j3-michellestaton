@@ -146,8 +146,10 @@ public class MembershipController extends Controller
         @Transactional(readOnly = true)
     public Result getChurchFamily()
         {
-            List<Family> families = jpaApi.em().createQuery("SELECT f FROM Family f ORDER BY FamilyName, FamilyId").getResultList();
-            return ok(views.html.families.render(families));
+            List<Family> families = jpaApi.em().
+                    createQuery("SELECT f FROM Family f ORDER BY FamilyName, FamilyId ").getResultList();
+
+                     return ok(views.html.families.render(families));
         }
 
 
