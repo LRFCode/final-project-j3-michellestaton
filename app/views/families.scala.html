@@ -15,7 +15,7 @@
     <div class="container">
                 @for(family <- families) {
                 <div class="row">
-                <div class="col-xs-1"></div>
+                <div class="col-xs-2"></div>
                 <div class="col-xs-3">
                 <img src="familypicture/@family.getFamilyId" width="200"><br>
                 </div>
@@ -28,7 +28,7 @@
                    <br>
                     <hr/>
                 </div>
-
+                    <div class="col-xs-3"
                     <label>Address:  @family.getAddress()</label><br>
                     <label>Phone Number:
                         @if(family.getMemberships.size() > 0) {
@@ -37,8 +37,9 @@
                         }
                     </label>
 
-                <div class="col-xs-6"></div>
+                <div class="col-xs-2"></div>
                 </div>
+                    <div class="row"></div>
                 </div>
             }
 

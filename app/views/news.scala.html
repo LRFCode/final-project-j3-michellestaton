@@ -15,8 +15,8 @@
 @for(newsItem <- news){
 <label> @newsItem.getNewsname()</label><br>
 <label>Announcement:  @newsItem.getAnnouncement()</label><br>
-<label>Dates: @newsItem.getStartdate()</label>
-<label>@newsItem.getExpirationdate()</label>
+<label>Dates: @newsItem.getFormattedStartdate()</label><br>
+
 }
 </body>
 </html>

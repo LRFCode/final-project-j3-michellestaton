@@ -3,6 +3,7 @@ package models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 @Entity
 
@@ -49,6 +50,18 @@ public class News
     {
         return startdate;
     }
+    public String getFormattedStartdate()
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        if (startdate == null)
+        {
+            return null;
+        }
+        else
+        {
+            return sdf.format(startdate);
+        }
+    }
 
     public void setStartdate(Date startdate)
     {
@@ -58,6 +71,18 @@ public class News
     public Date getExpirationdate()
     {
         return expirationdate;
+    }
+    public String getFormattedExpirationdate()
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        if (expirationdate == null)
+        {
+            return null;
+        }
+        else
+        {
+            return sdf.format(expirationdate);
+        }
     }
 
     public void setExpirationdate(Date expirationdate)
