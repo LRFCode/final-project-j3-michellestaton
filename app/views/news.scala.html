@@ -11,12 +11,21 @@
 </head>
 <body>
 <div class="jumbotron text-center">
-<img src="/assets/images/churchnews.jpg"><br>
-@for(newsItem <- news){
-<label> @newsItem.getNewsname()</label><br>
-<label>Announcement:  @newsItem.getAnnouncement()</label><br>
-<label>Dates: @newsItem.getFormattedStartdate()</label><br>
+    <img src="/assets/images/churchnews.jpg"><br></div>
 
-}
+
+@for(newsItem <- news){
+
+    <div class="col-xs-2">
+        <h1>@newsItem.getNewsname()  :</h1><br>
+    </div>
+    }
+<hr/>
+@for(newsItem <- news) {
+        <div class="col-xs-2">
+            <label>  @newsItem.getAnnouncement()</label>
+        </div>
+    }
+
 </body>
 </html>
