@@ -13,19 +13,28 @@
 <div class="jumbotron text-center">
     <img src="/assets/images/churchnews.jpg"><br></div>
 
-
+<table class="table">
+    <tr class="success">
 @for(newsItem <- news){
 
-    <div class="col-xs-2">
-        <h1>@newsItem.getNewsname()  :</h1><br>
-    </div>
+    <th>
+        <h1>@newsItem.getNewsname()  :</h1>
+
+    </th>
     }
-<hr/>
-@for(newsItem <- news) {
-        <div class="col-xs-2">
-            <label>  @newsItem.getAnnouncement()</label>
-        </div>
+    </tr>
+    <tr class="warning">
+@for(newsItem <- news){
+
+    <td>
+
+        <label>  @newsItem.getAnnouncement()</label>
+    </td>
     }
+    </tr>
+</table>
+
+
 
 </body>
 </html>
