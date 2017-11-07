@@ -119,11 +119,11 @@ public class MembershipController extends Controller
 
             return ok("Saved the pic");
         }
-        /*public Result getPics()
+        public Result getStaff()
         {
 
-            return ok(views.html.families.render());
-        }*/
+            return ok(views.html.Staffpage.render());
+        }
 
         @Transactional(readOnly = true)
         public Result getFamilyPicture(int familyId)

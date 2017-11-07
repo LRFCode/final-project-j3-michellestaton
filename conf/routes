@@ -13,7 +13,7 @@ GET     /family/:id                 controllers.MembershipController.getFamily(i
 GET     /church                     controllers.MembershipController.getChurchFamily()
 GET     /news                       controllers.MembershipController.getNews
 GET     /calendar                   controllers.MembershipController.getCalendar
-
+GET     /staff                      controllers.MembershipController.getStaff
 GET     /familypicture/:id          controllers.MembershipController.getFamilyPicture(id:Integer)
 GET     /familypic/:id              controllers.MembershipController.getFamilypic(id:Integer)
 POST    /familypic/:id              controllers.MembershipController.postFamilyPic(id:Integer)

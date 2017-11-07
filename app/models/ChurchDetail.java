@@ -1,43 +1,37 @@
 package models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity
-public class ChurchDetail
-{
-    @Id
-    private String membername;
-    private String name;
-    private int familyId;
 
-    public String getMembername()
+
+    @Entity
+    @Table(name="Title")
+    public class ChurchDetail
     {
-        return membername;
-    }
+        @Id
+        @Column(name="TitleId") private int titleid;
+        @Column(name="StaffPicture")   private byte[] picture;
 
-    public void setMembername(String membername)
-    {
-        this.membername = membername;
-    }
+        public int getTitleid()
+        {
+            return titleid;
+        }
 
-    public String getName()
-    {
-        return name;
-    }
+        public void setTitleid(int titleid)
+        {
+            this.titleid = titleid;
+        }
 
-    public void setName(String name)
-    {
-        this.name = name;
-    }
+        public byte[] getPicture()
+        {
+            return picture;
+        }
 
-    public int getFamilyId()
-    {
-        return familyId;
+        public void setPicture(byte[] picture)
+        {
+            this.picture = picture;
+        }
     }
-
-    public void setFamilyId(int familyId)
-    {
-        this.familyId = familyId;
-    }
-}
